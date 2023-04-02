@@ -72,6 +72,11 @@ function Sample() {
       return prevCount + 1;
     });
   };
+  const decrement = () => {
+    setCounter(function (prevCount) {
+      return prevCount - 1;
+    });
+  };
 
   useEffect(() => {
     console.log("general did mount-update");
@@ -87,14 +92,11 @@ function Sample() {
       <h1>{counter}</h1>
 
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" onClick={decrement}>
           Min
         </button>
         <button type="button" class="btn btn-primary" onClick={increment}>
           Add
-        </button>
-        <button type="button" class="btn btn-primary">
-          Right
         </button>
       </div>
       <Form>

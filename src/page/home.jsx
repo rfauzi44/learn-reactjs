@@ -12,6 +12,7 @@ function Home() {
   async function getData() {
     try {
       const {data} = await axios.get("https://hplussport.com/api/products/order/price");
+      console.log(data)
       setProduct(data)
     } catch (error) {
       console.log(error);
@@ -48,9 +49,9 @@ function Home() {
         </div>
       </div>
       <div class="container">
-        <div class="row">
+        <div class="row g-4">
           {product.map((e) => {
-            return <CardProduct image={e.image} name={e.name} id={e.id} />;
+            return <CardProduct image={e.image} name={e.name} id={e.id} description={e.description} />;
           })}
         </div>
       </div>
